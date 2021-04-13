@@ -3,7 +3,7 @@ sys.path.append(os.pardir)
 import numpy as np
 import pickle
 from get_data import load_mnist
-from sigmoid import sigmoid
+from activation_func import sigmoid
 from softmax import softmax
 
 

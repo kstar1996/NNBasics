@@ -1,7 +1,7 @@
 #신경망
 
 import numpy as np
-from sigmoid import sigmoid
+from activation_func import sigmoid
 
 
 def activation(x):  # 활성화 함수
