@@ -1,6 +1,7 @@
 import numpy as np
 from differentiation import numerical_gradient
 from softmax import softmax
+from activation_func import sigmoid
 from loss_function import cross_entropy_error
 
 
@@ -13,6 +14,10 @@ def gradient_descent(f, init_x, lr=0.01, step_num=100):
         grad = numerical_gradient(f, x)
         x -= lr*grad
     return x
+
+
+def sigmoid_grad(x):
+    return (1.0 - sigmoid(x)) * sigmoid(x)
 
 
 class SimpleNet:
