@@ -1,7 +1,7 @@
 import sys, os
-import numpy as np
+
 sys.path.append(os.pardir)   # 부모 디렉터리의 파일을 가져올 수 있도록 설정
-from get_data import load_mnist
+from DeepLearning.get_data import load_mnist
 
 # 이 형식으로 반환하겠다 뭐 그런뜻
 # load_mnist를 통해 피클 파일 생성해줌

@@ -2,9 +2,9 @@ import sys, os
 sys.path.append(os.pardir)
 import numpy as np
 import pickle
-from get_data import load_mnist
-from activation_func import sigmoid
-from softmax import softmax
+from DeepLearning.get_data import load_mnist
+from DeepLearning.functions import sigmoid
+from DeepLearning.softmax import softmax
 
 
 def get_data():
@@ -14,7 +14,7 @@ def get_data():
 
 def init_network():
     # trained weight
-    with open("sample_weight.pkl", 'rb') as file:
+    with open("DeepLearning/sample_weight.pkl", 'rb') as file:
         network = pickle.load(file)
     return network
 
@@ -29,7 +29,6 @@ def predict(network, x):
     z2 = sigmoid(a2)
     a3 = np.dot(z2, w3) + b3
     y = softmax(a3)
-
     return y
 
 # get mnist dataset

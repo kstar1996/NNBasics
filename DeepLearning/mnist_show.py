@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.pardir)
 import numpy as np
-from get_data import load_mnist
+from DeepLearning.get_data import load_mnist
 from PIL import Image  # Python Image Library: PIL
 # code for showing the mnist image
 

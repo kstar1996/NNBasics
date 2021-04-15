@@ -1,8 +1,8 @@
 import numpy as np
-from differentiation import numerical_gradient
-from softmax import softmax
-from activation_func import sigmoid
-from loss_function import cross_entropy_error
+from DeepLearning.differentiation import numerical_gradient
+from DeepLearning.softmax import softmax
+from DeepLearning.functions import sigmoid
+from DeepLearning.functions import cross_entropy_error
 
 
 # lr is learning rate
