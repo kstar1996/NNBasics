@@ -1,6 +1,5 @@
 import numpy as np
-from DeepLearning.softmax import softmax
-from DeepLearning.functions import cross_entropy_error
+from DeepLearning.functions import *
 
 
 class Relu:

@@ -3,8 +3,7 @@ sys.path.append(os.pardir)
 import numpy as np
 import pickle
 from DeepLearning.get_data import load_mnist
-from DeepLearning.functions import sigmoid
-from DeepLearning.softmax import softmax
+from DeepLearning.functions import *
 
 
 def get_data():
