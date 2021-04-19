@@ -36,30 +36,34 @@ def _download(file_name):
     urllib.request.urlretrieve(url_base + file_name, file_path)
     print("Done")
 
+
 def download_mnist():
     for v in key_file.values():
-       _download(v)
+        _download(v)
+
 
 def _load_label(file_name):
     file_path = dataset_dir + "/" + file_name
 
     print("Converting " + file_name + " to NumPy Array ...")
     with gzip.open(file_path, 'rb') as f:
-            labels = np.frombuffer(f.read(), np.uint8, offset=8)
+        labels = np.frombuffer(f.read(), np.uint8, offset=8)
     print("Done")
 
     return labels
+
 
 def _load_img(file_name):
     file_path = dataset_dir + "/" + file_name
 
     print("Converting " + file_name + " to NumPy Array ...")
     with gzip.open(file_path, 'rb') as f:
-            data = np.frombuffer(f.read(), np.uint8, offset=16)
+        data = np.frombuffer(f.read(), np.uint8, offset=16)
     data = data.reshape(-1, img_size)
     print("Done")
 
     return data
+
 
 def _convert_numpy():
     dataset = {}
@@ -70,6 +74,7 @@ def _convert_numpy():
 
     return dataset
 
+
 def init_mnist():
     download_mnist()
     dataset = _convert_numpy()
@@ -77,6 +82,7 @@ def init_mnist():
     with open(save_file, 'wb') as f:
         pickle.dump(dataset, f, -1)
     print("Done!")
+
 
 def _change_one_hot_label(X):
     T = np.zeros((X.size, 10))
