@@ -10,11 +10,8 @@ sys.path.append(os.pardir)
 class TwoLayerNet:
 
     def __init__(self, input_size, hidden_size, output_size, weight_init_std=0.01):
-        self.params = {}
-        self.params['W1'] = weight_init_std * np.random.randn(input_size, hidden_size)
-        self.params['b1'] = np.zeros(hidden_size)
-        self.params['W2'] = weight_init_std * np.random.randn(hidden_size, output_size)
-        self.params['b2'] = np.zeros(output_size)
+        self.params = {'W1': weight_init_std * np.random.randn(input_size, hidden_size), 'b1': np.zeros(hidden_size),
+                       'W2': weight_init_std * np.random.randn(hidden_size, output_size), 'b2': np.zeros(output_size)}
 
         # creating layers
         self.layers = OrderedDict()
@@ -59,13 +56,13 @@ class TwoLayerNet:
         self.loss(x, t)
 
         # backward
-        dout = 1
-        dout = self.lastLayer.backward(dout)
+        d_out = 1
+        d_out = self.lastLayer.backward(d_out)
 
         layers = list(self.layers.values())
         layers.reverse()
         for layer in layers:
-            dout = layer.backward(dout)
+            d_out = layer.backward(d_out)
 
         grads = {}
         grads['W1'], grads['b1'] = self.layers['Affine1'].dW, self.layers['Affine1'].db

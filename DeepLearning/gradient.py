@@ -34,8 +34,3 @@ class SimpleNet:
         loss = cross_entropy_error(y, t)
 
         return loss
-
-
-# net = SimpleNet()
-# 가중치 매개변
-# print(net.W)

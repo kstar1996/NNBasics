@@ -2,6 +2,7 @@ import numpy as np
 from DeepLearning.softmax import softmax
 from DeepLearning.functions import cross_entropy_error
 
+
 class Relu:
     def __init__(self):
         self.mask = None
