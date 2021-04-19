@@ -1,4 +1,6 @@
 import numpy as np
+from DeepLearning.softmax import softmax
+from DeepLearning.functions import cross_entropy_error
 
 class Relu:
     def __init__(self):
@@ -35,6 +37,7 @@ class Sigmoid:
 
 
 class Affine:
+    #  the normal dot product of matrices
     def __init__(self, W, b):
         self.W = W
         self.b = b
@@ -60,3 +63,29 @@ class Affine:
 
         dx = dx.reshape(*self.original_x_shape)
         return dx
+
+
+class SoftmaxWithLoss:
+    def __init__(self):
+        self.loss = None
+        self.y = None  # softmax output
+        self.t = None
+
+    def forward(self, x, t):
+        self.t = t
+        self.y = softmax(x)
+        self.loss = cross_entropy_error(self.y, self.t)
+
+        return self.loss
+
+    def backward(self, dout=1):
+        batch_size = self.t.shape[0]
+        if self.t.size == self.y.size:
+            dx = (self.y - self.t) / batch_size
+        else:
+            dx = self.y.copy()
+            dx[np.arange(batch_size), self.t] -= 1
+            dx = dx / batch_size
+
+        return dx
+
