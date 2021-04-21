@@ -1,7 +1,9 @@
 import numpy as np
+# 갱신 방법들
+
 
 class SGD:
-    #Stochastic Gradient Descent
+    # Stochastic Gradient Descent
 
     def __init__(self, lr=0.01):
         self.lr = lr
@@ -27,3 +29,15 @@ class Momentum:
         for key in params.keys():
             self.v[key] = self.momentum * self.v[key] - self.lr * grads[key]
             params[key] += self.v[key]
+
+
+class AdaGrad:
+    def __init__(self, lr=0.01):
+        self.lr = lr
+        self.h = None
+
+
+
+
+
+
