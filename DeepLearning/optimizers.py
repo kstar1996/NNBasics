@@ -49,7 +49,6 @@ class AdaGrad:
 
 
 class Adam:
-    # Adam (http://arxiv.org/abs/1412.6980v8)
 
     def __init__(self, lr=0.001, beta1=0.9, beta2=0.999):
         self.lr = lr
