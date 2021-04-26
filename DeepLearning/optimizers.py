@@ -1,7 +1,6 @@
 import numpy as np
 # 갱신 방법들
 
-
 class SGD:
     # Stochastic Gradient Descent
 
