@@ -1,13 +1,15 @@
 import numpy as np
 
 
-def im2col(input_data, filter_h, filter_w, stride=1, pad=0):
+# input data is the 4 dimensional data / filter_h and w are height and width
+
+def im2col(input_data, filter_h, filter_w, stride=1, padding=0):
 
     N, C, H, W = input_data.shape
-    out_h = (H + 2*pad - filter_h)//stride + 1
-    out_w = (W + 2*pad - filter_w)//stride + 1
+    out_h = (H + 2 * padding - filter_h) // stride + 1
+    out_w = (W + 2 * padding - filter_w) // stride + 1
 
-    img = np.pad(input_data, [(0,0), (0,0), (pad, pad), (pad, pad)], 'constant')
+    img = np.pad(input_data, [(0,0), (0,0), (padding, padding), (padding, padding)], 'constant')
     col = np.zeros((N, C, filter_h, filter_w, out_h, out_w))
 
     for y in range(filter_h):
