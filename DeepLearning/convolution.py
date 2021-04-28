@@ -42,22 +42,3 @@ class Convolution:
         out = out.reshape(N, out_h, out_w, -1).transpose(0,3,1,2)
 
         return out
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
