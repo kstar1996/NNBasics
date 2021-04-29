@@ -1,6 +1,5 @@
 import numpy as np
 
-
 # input data is the 4 dimensional data / filter_h and w are height and width
 
 def im2col(input_data, filter_h, filter_w, stride=1, padding=0):
